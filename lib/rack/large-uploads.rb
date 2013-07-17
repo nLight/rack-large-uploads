@@ -1,10 +1,6 @@
 require 'fileutils'
 require 'rack/large-uploads/version'
 
-# TODO: remove these dependencies:
-require 'action_dispatch'
-require 'active_support/core_ext'
-
 module Rack
   class LargeUploads
     autoload :UploadedChunk, 'rack/large-uploads/uploaded_chunk'
@@ -101,7 +97,7 @@ module Rack
         #   }
 
         if value.is_a?(Hash)
-          attributes = HashWithIndifferentAccess.new(value)
+          attributes = Hash.symbolize_keys(value)
           tempfile   = attributes[:tempfile]
 
           if tempfile.present?

@@ -1,6 +1,6 @@
 module Rack
   class LargeUploads
-    class UploadedChunk < ActionDispatch::Http::UploadedFile
+    class UploadedChunk < ::UploadedFile
       # stay tuned
     end
   end

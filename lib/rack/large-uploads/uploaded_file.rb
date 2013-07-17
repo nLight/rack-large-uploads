@@ -1,6 +1,6 @@
 module Rack
   class LargeUploads
-    class UploadedFile < ActionDispatch::Http::UploadedFile
+    class UploadedFile < ::UploadedFile
       def initialize(hash)
         tempfile = hash[:tempfile]
         hash[:tempfile] = ::File.new(tempfile) if tempfile.is_a?(String)
